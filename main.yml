@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: webapp-deployment
+spec:
+   replicas: 3
+   selector:     
+      matchLabels:
+         app: webapp-deployment
+   template:
+      metadata:
+         labels:
+            app: webapp-deployment
+      spec:
+         containers:
+            - name: webapp-deployment
+              image: nginx:1.14
+              imagePullPolicy: Always
+              ports:
+               - containerPort: 80
+---
+kind: Service                             
+apiVersion: v1
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp-deployment
+spec:
+  ports:
+    - port: 80                               
+      targetPort: 80
+      nodePort: 32145
+  selector:
+    app: webapp-deployment                    
+  type: LoadBalancer                   
