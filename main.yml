@@ -29,7 +29,7 @@ spec:
   ports:
     - port: 8080                               
       targetPort: 8080
-      nodePort: 32146
+      nodePort: 32140
   selector:
     app: webapp-deployment                    
   type: LoadBalancer                   
