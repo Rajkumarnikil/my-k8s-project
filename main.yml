@@ -14,7 +14,7 @@ spec:
       spec:
          containers:
             - name: webapp-deployment
-              image: nginx:1.14
+              image: rajkumarchinnasamy/newapp:latest
               imagePullPolicy: Always
               ports:
                - containerPort: 80
