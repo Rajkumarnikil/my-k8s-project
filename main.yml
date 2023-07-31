@@ -17,7 +17,7 @@ spec:
               image: rajkumarchinnasamy/newapp:latest
               imagePullPolicy: Always
               ports:
-               - containerPort: 80
+               - containerPort: 8080
 ---
 kind: Service                             
 apiVersion: v1
@@ -27,9 +27,9 @@ metadata:
     app: webapp-deployment
 spec:
   ports:
-    - port: 80                               
-      targetPort: 80
-      nodePort: 32145
+    - port: 8080                               
+      targetPort: 8080
+      nodePort: 32146
   selector:
     app: webapp-deployment                    
   type: LoadBalancer                   
